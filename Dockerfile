@@ -30,6 +30,11 @@ RUN cd ~/openface && \
     python2 setup.py install && \
     pip2 install --user --ignore-installed -r demos/web/requirements.txt && \
     pip2 install -r training/requirements.txt
+  
+# personal modificiations
+RUN python -m pip install --upgrade --force opencv-python
+RUN python -m pip install tqdm
+RUN python -m pip install scenedetect
 
 EXPOSE 8000 9000
 CMD /bin/bash -l -c '/root/openface/demos/web/start-servers.sh'
